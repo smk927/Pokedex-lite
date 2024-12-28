@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+/* Global page transition for route changes */
+.page-transition {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.page-transition.enter-active {
+  opacity: 1;
+}
+
+.page-transition.exit-active {
+  opacity: 0;
+}

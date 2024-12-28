@@ -38,7 +38,7 @@ function PokemonDetailsView() {
   const { sprites, stats, abilities, types, height, weight, moves, species } = pokemon;
 
   return (
-    <div className="details-container">
+    <div className="details-container fadeIn">
       <button onClick={handleClose}>← Back to List</button>
 
       <h1>{pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</h1>

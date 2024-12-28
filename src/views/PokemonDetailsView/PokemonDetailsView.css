@@ -100,3 +100,21 @@
   font-size: 16px;
   text-transform: capitalize;
 }
+/* Apply scale transition on detail view */
+.details-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0; /* Start with hidden */
+  transform: scale(0.9); /* Start scaled down */
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.details-container.fadeIn {
+  opacity: 1;
+  transform: scale(1); /* Scale to normal size */
+}
