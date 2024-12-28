@@ -6,7 +6,6 @@ Pokedex Lite is a modern, responsive web application built with **React** that a
 
 ## Features
 
-- **Dark Theme**: Modern, sleek dark theme for better readability and a comfortable browsing experience.
 - **Pokémon Search**: Search for Pokémon by name.
 - **Filter by Type**: Filter Pokémon by types such as Fire, Water, Grass, etc.
 - **Pagination**: Display a paginated list of Pokémon to efficiently handle large data.
