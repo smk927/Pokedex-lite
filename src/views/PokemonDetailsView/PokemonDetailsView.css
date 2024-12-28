@@ -1,0 +1,102 @@
+/* Container for the entire page */
+.details-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Back button styling */
+.details-container button {
+  margin-bottom: 20px;
+  background-color: #ccc;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* Heading for the Pokémon's name */
+.details-container h1 {
+  font-size: 32px;
+  font-weight: bold;
+  text-transform: capitalize;
+  margin-bottom: 20px;
+}
+
+/* Main container for sprite and details */
+.details-container .main-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  width: 100%;
+}
+
+/* Styling for the sprite section */
+.details-container .sprite-container {
+  text-align: center;
+  width: 250px; /* Fixed width for the image container */
+}
+
+.details-container .sprite-container img {
+  width: 200px;
+  height: 200px;
+}
+
+/* Section for the details (stats, abilities, etc.) */
+.details-container .details-container-right {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Styling for stats, abilities, etc. */
+.details-container .details-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: flex-start;
+}
+
+.details-container .details-list h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  text-transform: capitalize;
+}
+
+/* Styling for the list items (stats, abilities, etc.) */
+.details-container .details-list ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.details-container .details-list li {
+  font-size: 16px;
+  margin-bottom: 8px;
+  text-transform: capitalize;
+}
+
+/* Height and weight section */
+.details-container .details-list .height-weight {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Moves section styling */
+.details-container .moves ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.details-container .moves li {
+  font-size: 16px;
+  text-transform: capitalize;
+}
