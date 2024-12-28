@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import MainView from "./views/MainView/MainView";
 import PokemonDetailsView from "./views/PokemonDetailsView/PokemonDetailsView";
 import "./styles/global.css";
-import "./styles/pageTransition.css";  // Import the page transition CSS
+import "./styles/pageTransition.css";  
 
 function AppEntry() {
   return (

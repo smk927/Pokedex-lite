@@ -1,8 +1,8 @@
 import React from "react";
-import "./PaginationStyles.css"; // Import Pagination styles
+import "./PaginationStyles.css"; 
 
 const PaginationControls = ({ currentPage, totalItems, itemsPerPage, onPageChange }) => {
-  const totalPages = Math.ceil(totalItems / itemsPerPage); // Calculate the total pages
+  const totalPages = Math.ceil(totalItems / itemsPerPage); 
 
   const handlePrevPage = () => {
     if (currentPage > 0) {

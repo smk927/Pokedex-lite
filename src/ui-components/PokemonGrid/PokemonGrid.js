@@ -3,7 +3,7 @@ import { fetchPokemonList, fetchPokemonDetails, fetchPokemonTypes } from "../../
 import PaginationControls from "../../ui-components/PaginationControls/PaginationControls";
 import Sidebar from "../../ui-components/Sidebar/Sidebar";
 import { usePersistentStorage } from "../../custom-hooks/usePersistentStorage";
-import { Link } from "react-router-dom"; // Import Link for navigation
+import { Link } from "react-router-dom"; 
 
 function MainView() {
   const [pokemon, setPokemon] = useState([]);
@@ -140,7 +140,7 @@ function MainView() {
         {filteredPokemon.map((p) => (
           <div key={p.id} style={{ border: "1px solid #ccc", padding: "10px", textAlign: "center" }}>
             <h3>{p.name}</h3>
-            <img src={p.sprites.front_default} alt={p.name} style={{ width: "100px", height: "100px" }} />
+            <img src={p.sprites.front_default} alt={p.name} style={{ width: "150px", height: "150px" }} />
             <p>Types: {p.types.map((t) => t.type.name).join(", ")}</p>
             <p>HP: {p.stats.find((stat) => stat.stat.name === "hp")?.base_stat}</p>
 

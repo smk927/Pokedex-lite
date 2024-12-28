@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./TypeFilterStyles.css"; // Import styles for TypeFilter
+import "./TypeFilterStyles.css"; 
 
 const TypeFilter = ({ selectedType, onTypeChange }) => {
   const [types, setTypes] = useState([]);

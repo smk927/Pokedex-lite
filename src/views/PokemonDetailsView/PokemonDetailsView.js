@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { fetchPokemonDetails } from "../../api/pokeAPI";
-import "./PokemonDetailsView.css"; // Import the updated CSS file for styling
+import "./PokemonDetailsView.css";
 
 function PokemonDetailsView() {
-  const { name } = useParams(); // Get the Pokémon name from the URL params
-  const navigate = useNavigate(); // Hook to navigate back to the main view
+  const { name } = useParams(); 
+  const navigate = useNavigate(); 
   const [pokemon, setPokemon] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -27,14 +27,13 @@ function PokemonDetailsView() {
   }, [name]);
 
   const handleClose = () => {
-    navigate("/"); // Navigate back to the main page
+    navigate("/"); 
   };
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
   if (!pokemon) return <div>No Pokémon found.</div>;
 
-  // Extracting more data for the view
   const { sprites, stats, abilities, types, height, weight, moves, species } = pokemon;
 
   return (

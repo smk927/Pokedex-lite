@@ -1,76 +1,124 @@
-/* Container for the entire page */
+:root {
+  --bg-primary: #121214;
+  --bg-secondary: #1e1e22;
+  --text-primary: #f2f3f5;
+  --text-secondary: #a8a9ac;
+  --accent-color: #6d28d9;
+  --accent-hover: #7c3aed;
+  --border-radius: 10px;
+  --transition: all 0.3s ease;
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
 .details-container {
-  padding: 20px;
-  max-width: 1200px;
-  margin: auto;
-  font-family: Arial, sans-serif;
+  padding: 16px;
+  max-width: 1000px;
+  margin: 0 auto;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  gap: 16px;
+  letter-spacing: 0.3px;
 }
 
-/* Back button styling */
 .details-container button {
-  margin-bottom: 20px;
-  background-color: #ccc;
-  padding: 10px 20px;
-  font-size: 16px;
-  border: none;
+  margin-bottom: 12px;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+  align-self: flex-start;
 }
 
-/* Heading for the Pokémon's name */
+.details-container button:hover {
+  background-color: var(--accent-color);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow);
+}
+
 .details-container h1 {
-  font-size: 32px;
-  font-weight: bold;
+  font-size: 28px;
+  font-weight: 700;
   text-transform: capitalize;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
+  color: var(--accent-color);
+  letter-spacing: -0.5px;
 }
 
-/* Main container for sprite and details */
 .details-container .main-content {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 40px;
+  gap: 24px;
   width: 100%;
+  background-color: var(--bg-secondary);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  box-shadow: var(--shadow);
 }
 
-/* Styling for the sprite section */
 .details-container .sprite-container {
   text-align: center;
-  width: 250px; /* Fixed width for the image container */
+  width: 300px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--border-radius);
+  padding: 16px;
+  transition: var(--transition);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.details-container .sprite-container:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
 }
 
 .details-container .sprite-container img {
-  width: 200px;
-  height: 200px;
+  width: 260px;
+  height: 260px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
 }
 
-/* Section for the details (stats, abilities, etc.) */
 .details-container .details-container-right {
-  width: 50%;
+  flex: 1;
+  min-width: 300px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px;
 }
 
-/* Styling for stats, abilities, etc. */
 .details-container .details-list {
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: flex-start;
+  flex-direction: column;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 16px;
+  border-radius: var(--border-radius);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: var(--transition);
+}
+
+.details-container .details-list:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow);
 }
 
 .details-container .details-list h2 {
-  font-size: 24px;
-  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
   text-transform: capitalize;
+  color: var(--accent-color);
+  letter-spacing: -0.3px;
 }
 
-/* Styling for the list items (stats, abilities, etc.) */
 .details-container .details-list ul {
   list-style-type: none;
   padding: 0;
@@ -78,43 +126,106 @@
 }
 
 .details-container .details-list li {
-  font-size: 16px;
-  margin-bottom: 8px;
+  font-size: 15px;
+  margin-bottom: 6px;
   text-transform: capitalize;
+  color: var(--text-secondary);
+  transition: var(--transition);
 }
 
-/* Height and weight section */
 .details-container .details-list .height-weight {
-  font-size: 16px;
-  font-weight: bold;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-primary);
+  display: flex;
+  gap: 16px;
 }
 
-/* Moves section styling */
 .details-container .moves ul {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 8px;
 }
 
 .details-container .moves li {
-  font-size: 16px;
-  text-transform: capitalize;
-}
-/* Apply scale transition on detail view */
-.details-container {
-  padding: 20px;
-  max-width: 1200px;
-  margin: auto;
-  font-family: Arial, sans-serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  opacity: 0; /* Start with hidden */
-  transform: scale(0.9); /* Start scaled down */
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  padding: 6px 12px;
+  background: var(--bg-primary);
+  border-radius: var(--border-radius);
+  font-size: 14px;
+  transition: var(--transition);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.details-container.fadeIn {
-  opacity: 1;
-  transform: scale(1); /* Scale to normal size */
+.details-container .moves li:hover {
+  background-color: var(--accent-color);
+  color: var(--text-primary);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow);
+}
+
+@media (max-width: 768px) {
+  .details-container {
+    padding: 12px;
+  }
+  
+  .details-container .main-content {
+    padding: 16px;
+    gap: 16px;
+  }
+  
+  .details-container .sprite-container {
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+  
+  .details-container .sprite-container img {
+    width: 240px;
+    height: 240px;
+  }
+  
+  .details-container .details-container-right {
+    width: 100%;
+  }
+  
+  .details-container .moves ul {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .details-container {
+    padding: 8px;
+  }
+
+  .details-container h1 {
+    font-size: 24px;
+  }
+  
+  .details-container .main-content {
+    padding: 12px;
+    gap: 12px;
+  }
+  
+  .details-container .sprite-container {
+    max-width: 240px;
+  }
+  
+  .details-container .sprite-container img {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .details-container .moves ul {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  }
+  
+  .details-container .details-list h2 {
+    font-size: 18px;
+  }
+  
+  .details-container .details-list li,
+  .details-container .details-list .height-weight {
+    font-size: 14px;
+  }
 }

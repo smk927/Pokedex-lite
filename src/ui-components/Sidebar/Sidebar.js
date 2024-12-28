@@ -1,5 +1,5 @@
 import React from "react";
-import "./SidebarStyles.css"; // Import styles for the sidebar
+import "./SidebarStyles.css"; 
 
 function Sidebar({ favorites, toggleSidebar, isSidebarVisible, toggleFavorite }) {
   return (

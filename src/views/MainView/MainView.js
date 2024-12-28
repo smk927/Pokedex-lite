@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { fetchPokemonList, fetchPokemonDetails, fetchPokemonTypes } from "../../api/pokeAPI";
 import PaginationControls from "../../ui-components/PaginationControls/PaginationControls";
-import Sidebar from "../../ui-components/Sidebar/Sidebar"; // Import the Sidebar component
+import Sidebar from "../../ui-components/Sidebar/Sidebar"; 
 import { usePersistentStorage } from "../../custom-hooks/usePersistentStorage";
-
+import "./MainViewStyles.css";
 function MainView() {
   const [pokemon, setPokemon] = useState([]);
   const [pokemonDetails, setPokemonDetails] = useState([]);
@@ -15,7 +15,7 @@ function MainView() {
   const [types, setTypes] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [favorites, setFavorites] = usePersistentStorage("favorites", []);
-  const [isSidebarVisible, setIsSidebarVisible] = useState(false); // Track visibility of the sidebar
+  const [isSidebarVisible, setIsSidebarVisible] = useState(false); 
 
   const pokemonPerPage = 20;
 
@@ -70,7 +70,6 @@ function MainView() {
     setFavorites(newFavorites);
   };
 
-  // Toggle the visibility of the sidebar
   const toggleSidebar = () => {
     setIsSidebarVisible(!isSidebarVisible);
   };
@@ -79,9 +78,9 @@ function MainView() {
   if (error) return <div>Error: {error}</div>;
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h1>Pokedex Lite</h1>
-
+    <div className="main-container">
+      <h1 className="heading">Pokedex Lite</h1>
+  
       {/* Sidebar Toggle Button */}
       <button
         onClick={toggleSidebar}
@@ -89,7 +88,7 @@ function MainView() {
           position: "absolute",
           top: "20px",
           left: "20px",
-          background: "gold",
+          background: "red",
           padding: "10px",
           border: "none",
           cursor: "pointer",
@@ -97,7 +96,7 @@ function MainView() {
       >
         {isSidebarVisible ? "Close Favorites" : "Show Favorites"}
       </button>
-
+  
       {/* Sidebar */}
       <Sidebar
         favorites={favoritedPokemon}
@@ -105,7 +104,7 @@ function MainView() {
         isSidebarVisible={isSidebarVisible}
         toggleFavorite={toggleFavorite}
       />
-
+  
       {/* Search Box */}
       <div>
         <label htmlFor="search">Search by Name: </label>
@@ -118,7 +117,7 @@ function MainView() {
           style={{ marginLeft: "10px" }}
         />
       </div>
-
+  
       {/* Type Filter Dropdown */}
       <div style={{ marginTop: "10px" }}>
         <label htmlFor="typeFilter">Filter by Type: </label>
@@ -135,20 +134,31 @@ function MainView() {
           ))}
         </select>
       </div>
-
+  
       {/* Pokémon Grid */}
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "10px", marginTop: "20px" }}>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(4, 1fr)",
+          gap: "10px",
+          marginTop: "20px",
+        }}
+      >
         {filteredPokemon.map((p) => (
-          <div key={p.id} style={{ border: "1px solid #ccc", padding: "10px", textAlign: "center" }}>
-            <img src={p.sprites.front_default} alt={p.name} style={{ width: "100px", height: "100px" }} />
+          <div key={p.id} style={{ border: "2px solid #fff", padding: "10px", textAlign: "center" }}>
+            <img
+              src={p.sprites.front_default}
+              alt={p.name}
+              style={{ width: "125px", height: "125px" }}
+            />
             <h3>{p.name}</h3>
             <p>Types: {p.types.map((type) => type.type.name).join(", ")}</p>
-
+  
             {/* Favorite Button */}
             <button
               onClick={() => toggleFavorite(p.id)}
               style={{
-                backgroundColor: favorites.includes(p.id) ? "gold" : "#ccc",
+                backgroundColor: favorites.includes(p.id) ? "#f30611" : "#4caf50",
                 padding: "5px 10px",
                 border: "none",
                 cursor: "pointer",
@@ -157,14 +167,14 @@ function MainView() {
             >
               {favorites.includes(p.id) ? "Unfavorite" : "Favorite"}
             </button>
-
+  
             <a href={`/pokemon/${p.name}`} style={{ display: "block", marginTop: "10px" }}>
               Details
             </a>
           </div>
         ))}
       </div>
-
+  
       {/* Pagination Controls */}
       <PaginationControls
         currentPage={currentPage}
@@ -174,6 +184,7 @@ function MainView() {
       />
     </div>
   );
+  
 }
 
 export default MainView;

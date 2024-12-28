@@ -1,4 +1,3 @@
-// src/custom-hooks/useDataFetcher.js
 
 import { useState, useEffect } from 'react';
 import axios from 'axios';
@@ -12,7 +11,7 @@ const useDataFetcher = (url) => {
     const fetchData = async () => {
       try {
         const response = await axios.get(url);
-        setData(response.data.results); // Assuming the API returns 'results' as Pokémon list
+        setData(response.data.results); 
         setLoading(false);
       } catch (error) {
         setError('Error fetching data');

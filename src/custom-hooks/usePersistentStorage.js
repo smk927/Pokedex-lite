@@ -1,9 +1,7 @@
 import { useState, useEffect } from "react";
 
-// Custom hook to manage persistent storage (localStorage)
 export const usePersistentStorage = (key, initialValue) => {
   const [storedValue, setStoredValue] = useState(() => {
-    // Try to get the stored value from localStorage or fallback to initialValue
     try {
       const item = window.localStorage.getItem(key);
       return item ? JSON.parse(item) : initialValue;
@@ -16,7 +14,7 @@ export const usePersistentStorage = (key, initialValue) => {
   const setValue = (value) => {
     try {
       setStoredValue(value);
-      window.localStorage.setItem(key, JSON.stringify(value)); // Persist to localStorage
+      window.localStorage.setItem(key, JSON.stringify(value)); 
     } catch (error) {
       console.error("Error saving to localStorage", error);
     }

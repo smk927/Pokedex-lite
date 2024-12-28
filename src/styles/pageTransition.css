@@ -1,15 +1,40 @@
-/* Page transition effect */
 .page-transition-container {
-    position: relative;
-    animation: fadeIn 0.5s ease-in-out;
-  }
-  
-  @keyframes fadeIn {
-    0% {
+  position: relative;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
       opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
+      transform: translateY(10px); 
   }
-  
+  100% {
+      opacity: 1;
+      transform: translateY(0); 
+  }
+}
+
+body {
+  background-color: #121212; 
+}
+.page-transition-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(18, 18, 18, 0.8); 
+  z-index: -1; 
+  pointer-events: none; 
+  animation: fadeInOverlay 0.5s ease-in-out;
+}
+
+@keyframes fadeInOverlay {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}

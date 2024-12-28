@@ -22,7 +22,6 @@ export const fetchPokemonDetails = async (name) => {
   }
 };
 
-// Fetch available Pokémon types dynamically
 export const fetchPokemonTypes = async () => {
   try {
     const response = await axios.get(`${API_BASE_URL}type`);
